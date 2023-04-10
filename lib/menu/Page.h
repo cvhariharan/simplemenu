@@ -14,11 +14,11 @@ class Page {
         }
 
         Page *getPrev() {
-            return NULL;
+            return prev;
         }
 
         Page *getNext() {
-            return NULL;
+            return next;
         }
 
         void setPrev(Page *p) {
