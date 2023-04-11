@@ -7,7 +7,7 @@ class ListPage : public Page {
     public:
         static const char *items[];
 
-        ListPage(Page *_prev, Page *_next): Page(_prev, _next) {}
+        ListPage(Page *_prev, Page *_next, const char *title): Page(_prev, _next, title) {}
 
         void draw(U8G2 u8g2) {
             u8g2.setFont(u8g_font_profont15);

@@ -8,9 +8,14 @@ class Page {
         virtual void draw(U8G2 u8g2) = 0;
         virtual Page *update(int event) = 0;
 
-        Page(Page *_prev, Page *_next) {
+        Page(Page *_prev, Page *_next, const char *_title) {
             prev = _prev;
             next = _next;
+            title = _title;
+        }
+
+        const char* getTitle() {
+            return title;
         }
 
         Page *getPrev() {
@@ -31,6 +36,7 @@ class Page {
     private:
         Page *prev;
         Page *next;
+        const char* title;
 };
 
 #endif
