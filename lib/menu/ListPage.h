@@ -7,7 +7,7 @@ class ListPage : public Page {
     public:
         static const char *items[];
 
-        ListPage(Page *_prev, Page *_next, const char *title): Page(_prev, _next, title) {}
+        ListPage(Page *_prev, Page **_next, int size, const char *title): Page(_prev, _next, size, title) {}
 
         void draw(U8G2 u8g2) {
             u8g2.setFont(u8g_font_profont15);
@@ -23,6 +23,8 @@ class ListPage : public Page {
                 case 1:
                     // Scroll
                     starting = (starting > 7) ? 0 : (starting + 1);
+                case 2:
+                    return getPrev();
             }
             
             return this;

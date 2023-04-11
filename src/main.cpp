@@ -5,8 +5,8 @@
 #include <ListPage.h>
 #include <Button.h>
 
-ListPage listPage(NULL, NULL, "listpage");
-WelcomePage welcome(NULL, &listPage, "welcomepage");
+ListPage listPage(NULL, NULL, 0, "listpage");
+WelcomePage welcome(NULL, (Page *[]){&listPage}, 1, "welcomepage");
 Page *currentPage;
 
 U8G2_ST7920_128X64_F_SW_SPI u8g2(U8G2_R0, /* clock=*/ 14, /* data=*/ 13, /* CS=*/ 2, /* reset=*/ U8X8_PIN_NONE);

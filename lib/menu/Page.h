@@ -8,9 +8,10 @@ class Page {
         virtual void draw(U8G2 u8g2) = 0;
         virtual Page *update(int event) = 0;
 
-        Page(Page *_prev, Page *_next, const char *_title) {
+        Page(Page *_prev, Page **_next, int _size, const char *_title) {
             prev = _prev;
             next = _next;
+            nextSize = _size;
             title = _title;
         }
 
@@ -22,20 +23,24 @@ class Page {
             return prev;
         }
 
-        Page *getNext() {
-            return next;
+        Page *getNext(int i) {
+            if(i > nextSize) {
+                return NULL;
+            }
+            return *(next + i);
         }
 
         void setPrev(Page *p) {
             prev = p;
         }
 
-        void setNext(Page *p) {
+        void setNext(Page **p) {
             next = p;
         }
     private:
         Page *prev;
-        Page *next;
+        Page **next;
+        int nextSize;
         const char* title;
 };
 
