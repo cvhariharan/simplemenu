@@ -14,7 +14,9 @@ class WelcomePage : public Page {
             switch(event) {
                 case 1:
                     Page *n = getNext(0);
-                    n->setPrev(this);
+                    if(n != NULL) {
+                        n->setPrev(this);
+                    }
                     return n;
             }
             return this;

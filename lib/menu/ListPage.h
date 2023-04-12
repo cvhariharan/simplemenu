@@ -23,8 +23,14 @@ class ListPage : public Page {
                 case 1:
                     // Scroll
                     starting = (starting > 7) ? 0 : (starting + 1);
+                    break;
                 case 2:
+                    if(starting == 0) {
+                        // Homing Page
+                        return getNext(0);
+                    }
                     return getPrev();
+                    break;
             }
             
             return this;
