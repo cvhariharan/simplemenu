@@ -15,7 +15,6 @@ Page *currentPage;
 // U8G2_ST7920_128X64_F_SW_SPI u8g2(U8G2_R0, /* clock=*/ 14, /* data=*/ 13, /* CS=*/ 2, /* reset=*/ U8X8_PIN_NONE);
 U8G2_ST7920_128X64_F_HW_SPI u8g2(U8G2_R0, 2);
 Button button(4);
-Encoder encoder(14,12);
 
 void setup() {
     u8g2.begin();
