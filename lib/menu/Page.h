@@ -1,7 +1,7 @@
-#include <U8g2lib.h>
-
 #ifndef PAGE_H
 #define PAGE_H
+
+#include <U8g2lib.h>
 
 class Page {
     public:

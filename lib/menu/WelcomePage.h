@@ -1,3 +1,5 @@
+#ifndef WELCOMEPAGE_H
+#define WELCOMEPAGE_H
 #include "Arduino.h"
 #include "Page.h"
 
@@ -25,3 +27,5 @@ class WelcomePage : public Page {
     private:
         const char *text = "Welcome";
 };
+
+#endif

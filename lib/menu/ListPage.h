@@ -1,3 +1,6 @@
+#ifndef LISTPAGE_H
+#define LISTPAGE_H
+
 #include "Arduino.h"
 #include "Page.h"
 
@@ -27,7 +30,11 @@ class ListPage : public Page {
                 case 2:
                     if(starting == 0) {
                         // Homing Page
-                        return getNext(0);
+                        Page *nextPage = getNext(0);
+                        if(nextPage != NULL) {
+                            nextPage->setPrev(this);
+                        }
+                        return nextPage;
                     }
                     return getPrev();
                     break;
@@ -42,3 +49,5 @@ class ListPage : public Page {
 };
 
 const char *ListPage::items[] = {"Home", "Preheat", "Level", "Slot1", "Slot2", "Slot3", "Slot4", "Slot5"};
+
+#endif

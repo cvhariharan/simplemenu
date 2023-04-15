@@ -1,3 +1,6 @@
+#ifndef HOMINGPAGE_H
+#define HOMINGPAGE_H
+
 #include "Arduino.h"
 #include "Page.h"
 
@@ -14,7 +17,12 @@ class HomingPage : public Page {
             switch(event) {
                 case 1:
                     text = "Homed all axes";
-                    return this;
+                    break;
+                case 2:
+                    Page *prev = getPrev();
+                    if(prev != NULL) {
+                        return prev;
+                    }
             }
             return this;
         }
@@ -22,3 +30,5 @@ class HomingPage : public Page {
     private:
         const char *text = "Homing";
 };
+
+#endif
